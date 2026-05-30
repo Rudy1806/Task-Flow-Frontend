@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { AuthService } from "@/services/auth.service";
 import { useAuthStore } from "@/store/auth.store";
-
+import Link from "next/link";
 export default function LoginPage() {
   const router = useRouter();
 
@@ -105,11 +105,20 @@ export default function LoginPage() {
             }
           />
 
+
+
+            <p className="text-sm">
+                Don't have an account?{" "}
+                <Link href="/register" className="font-semibold">
+                    Register
+                </Link>
+                </p>
           <button
             type="submit"
             disabled={loading}
             className="w-full bg-black text-white rounded-lg p-3 text-black"
           >
+
             {loading
               ? "Signing In..."
               : "Login"}

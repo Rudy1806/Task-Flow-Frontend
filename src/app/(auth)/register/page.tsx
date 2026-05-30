@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { AuthService } from "@/services/auth.service";
-
+import Link from "next/link";
 export default function RegisterPage() {
   const router = useRouter();
 
@@ -49,9 +49,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-white">
+    <main className="min-h-screen flex items-center justify-center bg-white text-blackx">
       <div className="w-full max-w-md border border-neutral-200 rounded-2xl p-8">
-        <h1 className="text-3xl font-bold mb-2">
+        <h1 className="text-3xl font-bold mb-2 text-black">
           Register
         </h1>
 
@@ -66,7 +66,7 @@ export default function RegisterPage() {
           <input
             type="text"
             placeholder="Name"
-            className="w-full border rounded-lg p-3"
+            className="w-full border rounded-lg p-3 text-black"
             value={name}
             onChange={(e) =>
               setName(
@@ -78,7 +78,7 @@ export default function RegisterPage() {
           <input
             type="email"
             placeholder="Email"
-            className="w-full border rounded-lg p-3"
+            className="w-full border rounded-lg p-3 text-black"
             value={email}
             onChange={(e) =>
               setEmail(
@@ -90,7 +90,7 @@ export default function RegisterPage() {
           <input
             type="password"
             placeholder="Password"
-            className="w-full border rounded-lg p-3"
+            className="w-full border rounded-lg p-3 text-black"
             value={password}
             onChange={(e) =>
               setPassword(
@@ -99,10 +99,17 @@ export default function RegisterPage() {
             }
           />
 
+          <p className="text-sm text-black">
+            Already have an account?{" "}
+            <Link href="/login" className="font-semibold">
+                Login
+            </Link>
+            </p>
+
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-black text-white rounded-lg p-3"
+            className="w-full bg-black text-white rounded-lg p-3 text-black"
           >
             {loading
               ? "Creating..."
