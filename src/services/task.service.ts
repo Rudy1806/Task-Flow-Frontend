@@ -23,6 +23,7 @@ export const TaskService = {
     description?: string;
     status?: string;
     priority?: string;
+    assigned_to?: string | null;
     }
   ) => {
     const response = await api.put(
